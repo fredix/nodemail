@@ -11,3 +11,8 @@
 *.lai
 *.la
 *.a
+
+moc_*
+nodemail
+nodemail.pro.user
+Makefile

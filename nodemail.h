@@ -36,8 +36,6 @@ struct params {
     QString smtp_hostname;
     QString smtp_username;
     QString smtp_password;
-    QString smtp_sender;
-    QString smtp_recipient;
 };
 
 

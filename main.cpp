@@ -78,14 +78,6 @@ int main(int argc, char *argv[])
     options.alias("smtp-password", "spp");
 
 
-    options.add("smtp-sender", "set the smtp sender", QxtCommandOptions::Required);
-    options.alias("smtp-sender", "sps");
-
-
-    options.add("smtp-recipient", "set the smtp recipient", QxtCommandOptions::Required);
-    options.alias("smtp-recipient", "spr");
-
-
     options.add("help", "show this help text");
     options.alias("help", "h");
     options.parse(QCoreApplication::arguments());

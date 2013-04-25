@@ -5,7 +5,7 @@ this is the mail agent. To use it you need to launch with ncw https://github.com
 NCW will connect to your NCS instance. nodemail is waiting for a payload which is a json like this :
 
 ```bash
-{"exp": "user@hostname.com", "dest": "dest@hostname.com", "object": "yourobject", "body": "yourbody"}
+{ "exp": "user@domain.tld", "dest": "dest@domain.tld", "object": "your object", "body": "your body" }
 ```
 
 
@@ -59,5 +59,5 @@ ncw --worker-type=service --worker-name=mail --ncs-ip=NCS_IP --ncs-port=5569 --n
 PUSH a payload to this service
 
 ```bash
-curl -H "X-user-token: usetoken" -H "X-node-uuid: node-uuid" -H "X-node-password: node-password"  -H "X-payload-type: mail" -H "X-payload-mime: json" -H "X-workflow-uuid: workflow-uuid" -H "X-payload-action: push" -d '{ "exp": "user@domain.tld", "dest": "dest@domain.tld", "object": "your object", "body": "your body" }' http://ZEROGWIP:8000/payload
+curl -H "X-user-token: user-token" -H "X-node-uuid: node-uuid" -H "X-node-password: node-password"  -H "X-payload-type: mail" -H "X-payload-mime: json" -H "X-workflow-uuid: workflow-uuid" -H "X-payload-action: push" -d '{ "exp": "user@domain.tld", "dest": "dest@domain.tld", "object": "your object", "body": "your body" }' http://ZEROGWIP:8000/payload
 ```

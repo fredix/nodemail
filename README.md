@@ -53,6 +53,11 @@ Create a node with the NCS web interface or the HTTP API ( https://github.com/no
 and launch the service
 
 ```bash
-ncw --worker-type=service --worker-name=mail --ncs-ip=NCS_IP --ncs-port=5569 --node-uuid=nodeuuid --node-password=nodepassword --directory=/var/lib/nodemail --stdout=true --exec="mail_service --smtp-hostname=mail.service.tld--smtp-username=user@hostname.com --smtp-password=userpassword"
+ncw --worker-type=service --worker-name=mail --ncs-ip=NCS_IP --ncs-port=5569 --node-uuid=nodeuuid --node-password=nodepassword --stdout=true --exec="nodemail --smtp-hostname=mail.service.tld--smtp-username=user@hostname.com --smtp-password=userpassword"
 ```
 
+PUSH a payload to this service
+
+```bash
+curl -H "X-user-token: usetoken" -H "X-node-uuid: node-uuid" -H "X-node-password: node-password"  -H "X-payload-type: mail" -H "X-payload-mime: json" -H "X-workflow-uuid: workflow-uuid" -H "X-payload-action: push" -d '{ "exp": "user@domain.tld", "dest": "dest@domain.tld", "object": "your object", "body": "your body" }' http://ZEROGWIP:8000/payload
+```
